@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 id="header">Todo List</h1>
+      </div>
+
+      <form id="item-form">
+        <div class="">
+          <input type="text" id="item-input" placeholder="Enter Item Name" />
+        </div>
+
+        <div class="">
+          <button id="form-btn" type="submit">Add Item</button>
+        </div>
+      </form>
+
+      <div class="">
+        <input type="text" id="item-filter" placeholder="Filter Items" />
+      </div>
+
+      <ul id="item-list">
+        <li>Egg <button class="remove-item">X</button></li>
+        <li>Eggnogg <button class="remove-item">X</button></li>
+        <li>Juice <button class="remove-item">X</button></li>
+        <li>Butter <button class="remove-item">X</button></li>
+      </ul>
+      <div class="">
+        <button id="clear">Clear All</button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
