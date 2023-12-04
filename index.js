@@ -3,9 +3,9 @@ const itemInput = document.getElementById("item-input");
 const formBtn = document.getElementById("form-btn");
 const itemFilter = document.getElementById("item-filter");
 const itemList = document.getElementById("item-list");
-const removeitem = document.getElementById("remove-item");
 const clearAll = document.getElementById("clear");
 
+// console.log(itemList);
 // Functions
 function onAddItemClick(e) {
   e.preventDefault();
@@ -14,11 +14,10 @@ function onAddItemClick(e) {
 
   if (text === "") {
     alert("Please add an item.");
+    return;
   }
 
   addItemToDom(text);
-
-  console.log(text);
 }
 
 function createButton() {
@@ -45,7 +44,29 @@ function addItemToDom(newItem) {
 
 function addItemToStorage() {}
 
+function filteritems(e) {
+  const text = e.target.value;
+  const listItems = itemList.querySelectorAll("li");
+
+  listItems.forEach((item) => {
+    const itemName = item.firstChild.textContent.toLocaleLowerCase();
+    if (itemName.indexOf(text) !== -1) {
+      item.style.display = "flex";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+function onRemoveBtnClick(e) {
+  if (e.target.classList.contains("remove-item")) {
+    e.target.parentElement.remove();
+  }
+}
+
 function checkUI() {}
 
 // Event Listeners
 itemForm.addEventListener("submit", onAddItemClick);
+itemFilter.addEventListener("input", filteritems);
+itemList.addEventListener("click", onRemoveBtnClick);
